@@ -57,7 +57,7 @@
 #ifdef HAVE_BTSTACK_STDIN
 // mac 2011:    static const char * device_addr_string = "04:0C:CE:E4:85:D3";
 // pts:         
-static const char * device_addr_string = "00:1B:DC:08:0A:A5";
+static const char * device_addr_string = "00:1B:DC:07:32:EF";
 // mac 2013:    static const char * device_addr_string = "84:38:35:65:d1:15";
 // phone 2013:  static const char * device_addr_string = "D8:BB:2C:DF:F0:F2";
 // minijambox:  static const char * device_addr_string = "00:21:3C:AC:F7:38";
@@ -532,15 +532,22 @@ static void show_usage(void){
     printf("y/Y - register/deregister UIDS_CHANGED\n");
     printf("v/V - register/deregister VOLUME_CHANGED\n");
 
-    printf("p      - Get media players\n");
-    printf("I      - Set first found player as addressed player\n");
-    printf("O      - Set first found player as browsed player\n");
-    
-    printf("Q      - Browse folders (Get Folder Items with the Virtual File System scope)\n");
-    printf("P      - Browse media items\n");
-    printf("W      - Go up one level\n");
-    printf("T      - Go down one level\n");
-    
+    printf("pp - get media players. Browsing cid 0x%02X\n", browsing_cid);
+    printf("pI - Set addressed player\n");
+    printf("pO - Set browsed player\n");
+    printf("pQ - browse folders\n");
+    printf("pP - browse media items\n");
+    printf("pW - go up one level\n");
+    printf("pT - go down one level of %s\n", (char *)parent_folder_name);
+    printf("pi - Play item %s, MEDIA_PLAYER_VIRTUAL_FILESYSTEM\n", (char *)parent_folder_name);
+    printf("pj - browse now playing items\n");
+    printf("pn - search 3\n");
+    printf("ps - browse search folder\n");
+    printf("pt - Play item %s, AVRCP_BROWSING_SEARCH\n", (char *)parent_folder_name);
+    printf("pl - Get total num items in MEDIA_PLAYER_LIST\n");
+    printf("pm - Set max num fragments to 0x02\n");
+    printf("pM - Set max num fragments to 0xFF\n");
+
     printf("Ctrl-c - exit\n");
     printf("---\n");
 }
